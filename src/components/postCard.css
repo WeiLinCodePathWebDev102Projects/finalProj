@@ -1,12 +1,29 @@
-.post_card{
-    order: 1;
-  margin: 20px;
-  width: 15%;
-  height: 300px;
-  padding: 30px;
-  text-align: center;
-  border-radius: 30px;
-  background-color: white;
-  box-shadow: 0px 0px 10px rgba(255, 188, 218, 0.787); 
-  font-size: 1vw;
+
+
+.likeButton{
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.3em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  background-color: rgb(255, 210, 218);
+  margin: 5px;
+  flex: auto;
+}
+
+.commentButton{
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.3em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  background-color: rgb(255, 210, 218);
+  margin: 5px;
+  flex: auto;
 }

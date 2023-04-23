@@ -8,7 +8,7 @@ const EditPost = ({data}) => {
     const [post, setPost] = useState({
         post_title: "",
         caption: "",
-        image_ref: "",
+        image_ref: [],
         num_likes: 0,
         num_comments: 0,
     })
@@ -68,7 +68,7 @@ const EditPost = ({data}) => {
 
     return(
         <div className="newPostCard">
-            <form onSubmit={handleSubmit}>
+            <form>
                 <label htmlFor="post_title"> Post Title: </label> 
                 <input type ="text" id="post_title" name="post_title" value={post.post_title} onChange={handleChange}/>
                 <br />

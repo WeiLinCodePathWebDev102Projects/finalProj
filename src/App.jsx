@@ -11,6 +11,7 @@ import Layout from './routes/layout'
 import CreatePost from './pages/createPost'
 import ReadPost from './pages/readPost'
 import EditPost from './pages/editPost'
+import Comments from './pages/comments'
 
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
     // temporary, change to read posts later
     { path: "/", element: <ReadPost data={posts} />},
     { path: "/new", element: <CreatePost />},
-    { path: "/editPost/:id", element: <EditPost data={posts}/> }
+    { path: "/editPost/:id", element: <EditPost data={posts}/> },
+    { path: "comments/:id", element: <Comments data={posts}/>}
   ]);
 
   //declare use affects to call fetch post api
@@ -45,6 +47,8 @@ function App() {
     <div className=''>
 
       <div>
+        <br></br>
+        
         <h1>
           <Link to="/" className='title'>
             memoli.store 
