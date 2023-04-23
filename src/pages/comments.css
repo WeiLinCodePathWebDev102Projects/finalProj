@@ -1,0 +1,32 @@
+.postImg{
+    width: 30%;
+    border-radius: 50px;
+}
+
+.newComment{
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.3em 1em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    background-color: rgb(255, 210, 218);
+    margin: 5px;
+    flex: auto;
+}
+
+.newComment:hover{
+    border-color: #ffa9a9;
+}
+
+.commentBox{
+    background-color: #ffe8e8;
+    width: 80%;
+    border-color: #ff8282;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 50px;
+}
