@@ -14,6 +14,10 @@
   flex: auto;
 }
 
+.likeButton:hover{
+  box-shadow: 0px 0px 10px rgb(255, 0, 34);
+}
+
 .commentButton{
   border-radius: 8px;
   border: 1px solid transparent;
@@ -26,4 +30,18 @@
   background-color: rgb(255, 210, 218);
   margin: 5px;
   flex: auto;
+}
+
+.commentButton:hover{
+  box-shadow: 0px 0px 10px rgb(255, 0, 34);
+}
+
+.editLink{
+  float: right;
+}
+
+.editLink img{
+  width: 10%;
+  float: right;
+  filter: invert(87%) sepia(10%) saturate(7486%) hue-rotate(296deg) brightness(105%) contrast(102%);
 }

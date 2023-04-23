@@ -1,26 +1,41 @@
 import React, {useEffect, useState} from "react";
+import { useRoutes } from "react-router";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import { supabase } from "../client";
 import "./comments.css";
-import UserComments from "../components/userComments";
+
+//components
+import CreateComment from "./createComments";
+import ReadComments from "./readComments";
+
 
 const Comments = ({data}) => {
+    
     const {id} = useParams();
-
     const [post, setPost] = useState({
         post_title: "",
         caption: "",
-        image_ref: [],
+        image_ref: "",
         num_likes: 0,
         num_comments: 0,
-    })
+    });
+
+    const [comments, setComments] = useState([]);
+
+    //setup routes
+    let element = useRoutes([
+        { path: "/addComments/:id", element: <CreateComment/>},
+        
+    ]);
 
     //calls fetch
     useEffect(() => {
         fetchPost();
+        fetchComments();
     }, [id]);
 
-    //function to fetch
+    //function to fetch post
     const fetchPost = async () =>{
         const {data: postFromDB, error} = await supabase
         .from('hobbyhub')
@@ -29,15 +44,26 @@ const Comments = ({data}) => {
         .single();
 
         if (error){
-            console.error('Error fetching Crewmate:', error);
+            console.error('Error fetching Posts:', error);
         }
         else{
             setPost(postFromDB);
         }
     }
 
+    //function to fetch comments
+    const fetchComments = async () => {
+        const {data} = await supabase
+        .from('comments')
+        .select()
+        .eq("postId", id);
+    
+        // console.log(data);
+        setComments(data);
+    }
+
     return(
-        <div>
+        <div className="commentContainer">
             <h2>
                 {post.post_title}
             </h2>
@@ -50,14 +76,18 @@ const Comments = ({data}) => {
                 <h3>
                     Comments
                 </h3>
+                
+                <Link to={'addComments/'+id}>
+                    <button className="newComment">
+                        Add Comments
+                    </button>
+                </Link>
+                {element}
 
-                <button className="newComment">
-                    Add Comments
-                </button>
-
-                <br />
-                <UserComments />
+                <ReadComments data={comments}/>
+                
             </div>
+
         </div>
     )
 

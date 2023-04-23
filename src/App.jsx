@@ -12,6 +12,7 @@ import CreatePost from './pages/createPost'
 import ReadPost from './pages/readPost'
 import EditPost from './pages/editPost'
 import Comments from './pages/comments'
+import SocialLinks from './components/socialLinks'
 
 
 function App() {
@@ -25,13 +26,12 @@ function App() {
     { path: "/", element: <ReadPost data={posts} />},
     { path: "/new", element: <CreatePost />},
     { path: "/editPost/:id", element: <EditPost data={posts}/> },
-    { path: "comments/:id", element: <Comments data={posts}/>}
+    { path: "comments/:id/*", element: <Comments data={posts}/>}
   ]);
 
   //declare use affects to call fetch post api
   useEffect(() => {
     fetchPosts();
-    console.log(posts);
   }, []);
 
   //fetch post function
@@ -63,6 +63,17 @@ function App() {
 
       </div>
         {element}
+
+
+        <div className='links'>
+          <h2>
+            Social Link
+          </h2> <br />
+          <SocialLinks name="instagram" link="https://www.instagram.com/memoli.store/" />
+          <SocialLinks name="Esty" link="https://www.etsy.com/shop/MemoliStore" />
+          <SocialLinks name="Kofi" link="" />
+          <SocialLinks name="Carrd" link="https://memolistore.carrd.co/"/>
+        </div>
     
     </div>
   

@@ -22,11 +22,11 @@
 }
 
 .commentBox{
-    background-color: #ffe8e8;
+    background-color: #fabdbd;
     width: 80%;
     border-color: #ff8282;
     margin: auto;
     margin-top: 20px;
-    padding: 10px;
+    padding: 20px;
     border-radius: 50px;
 }

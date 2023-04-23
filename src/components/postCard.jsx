@@ -1,13 +1,12 @@
 import React from "react";
 import "../index.css";
 import "./postCard.css";
+import more from './3dot.png';
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const PostCard = (props) =>{
-
-    console.log(props.image_ref);
 
     const [numLikes, setNumLikes] = useState(0);
 
@@ -17,9 +16,12 @@ const PostCard = (props) =>{
 
     return(
         <div className="post_card">
-            <Link to={'editPost/'+props.id}>
-                .
-            </Link>
+            <div className="editLink">
+                <Link to={'editPost/'+props.id}>
+                    <img src={more}/>
+                </Link>
+            </div>
+            <br/>
             <h3>
                 {props.post_title}
             </h3>
@@ -39,7 +41,7 @@ const PostCard = (props) =>{
             
             <button className="commentButton">
                 <Link to={'comments/'+props.id}>
-                💬 {props.num_comments}
+                💬 Comment!
                 </Link>
             </button>
         </div>
