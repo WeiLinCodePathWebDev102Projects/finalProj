@@ -25,8 +25,6 @@ const CreateComment = (props) =>{
     const handleSubmit = async (event) =>{
         event.preventDefault();
 
-        updateNumComments();
-
         //call superbase
         await supabase
             .from('comments')
